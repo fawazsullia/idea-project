@@ -1,0 +1,38 @@
+.maincontainer{
+    background-color:white;
+    color: 	hsl(225, 46%, 32%);
+    height: 10vh;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.navlist{
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+}
+
+.navlist li {
+    margin : 0 10px;
+    color:hsl(30, 46%, 32%)
+
+}
+
+.navbtn button{
+    background-color: hsl(225, 46%, 32%) ;
+    color: white;
+    width: min-content;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+}
+
+.navbtn button:hover{
+    cursor: pointer;
+}

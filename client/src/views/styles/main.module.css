@@ -1,0 +1,79 @@
+/* contains the hero image, title and description */
+
+.heroinnercontainer {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: 80vh;
+  margin: 0 auto 0 auto;
+  align-items: center;
+}
+
+.herotext {
+  width: 80%;
+  margin-left: 5%;
+}
+
+.herotext h1 {
+  font-size: 4rem;
+  color: #3A539B;
+}
+
+.herotext p {
+  font-size: 1.2rem;
+  margin-top: -5px;
+  color : hsl(30, 46%, 32%)
+}
+
+.herotext button {
+  border: none;
+  padding: 13px;
+  background-color: hsl(225, 46%, 32%);
+  color: white;
+  border-radius: 5px;
+}
+
+.herotext button:hover{
+  cursor: pointer;
+}
+
+.heroimage {
+  width: 80%;
+  padding-left: 20%;
+}
+
+.heroimage object {
+  width: 70%;
+  height: 70%;
+}
+
+.submitbtn{
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/*section that has browse and arrow */
+
+.arrowsection {
+  height: 10vh;
+}
+
+.arrowsection div {
+  height: 50%;
+}
+
+.arrowsection img {
+  height: 100%;
+  margin: 0 auto 0 auto;
+  width: 10%;
+  display: block;
+  padding-top: 0;
+}
+
+.arrowsection p {
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: center;
+  color:hsl(225, 46%, 32%)
+}

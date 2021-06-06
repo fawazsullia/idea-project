@@ -1,0 +1,64 @@
+.backbtndiv{
+    position: absolute;
+    right: 7%;
+    top: 7%;
+}
+
+.backbtndiv:hover{
+    cursor: pointer;
+}
+
+.titlecontainer{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: hsl(225, 46%, 32%);
+    height: 80%;
+    width: 20%;
+    padding: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 0 0 25px 0;
+}
+
+.titlecontainer h2{
+    font-size: 2.5rem;
+    font-weight: 500;
+    
+}
+
+.bodycontainer{
+margin: 7% auto auto 25% ;
+width: 50%;
+color:  #3A539B;}
+
+.descriptioncontainer{
+    font-size: 1.2rem;
+}
+
+.descriptioncontainer p{
+    color: hsl(30, 46%, 32%);
+}
+
+.authordetails {
+    
+    margin: 20px auto 30px 30px;
+}
+
+.author, .social, .email {
+    font-size: 0.9em;
+    line-height: 1rem;
+}
+
+.takenbtn button{
+    padding: 8px;
+    margin-top: 5px;
+    border: none;
+    background-color: hsl(225, 46%, 32%);;
+    color: white;
+}
+
+.takenbtn button:hover{
+    cursor: pointer;
+}
