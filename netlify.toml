@@ -2,7 +2,7 @@
 
 base= "client/"
 publish = "public/"
-command = "CI = npm run build"
+command = "npm run build"
 
 [[redirects]]
 
