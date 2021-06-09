@@ -36,7 +36,7 @@ function Submit(){
             taken: false
         }
 //fetch post
- fetch("/app/submit", {
+ fetch("https://ideaproject.herokuapp.com/app/submit", {
     method: "POST",
     headers: {
         "Accept" : "application/json",

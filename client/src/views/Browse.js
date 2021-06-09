@@ -20,7 +20,7 @@ function Browse() {
     useEffect( () => {
 
         //fetch the data from server
-fetch('/app/browse?count=16')
+fetch('https://ideaproject.herokuapp.com/app/browse?count=16')
 .then((response)=> response.json())
 .then((data)=> {
 
