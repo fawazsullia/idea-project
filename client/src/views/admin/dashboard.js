@@ -13,7 +13,7 @@ const [pendingIdeas, setpendingIdeas] = useState([
 
 //getting pending ideas
 useEffect(() => {
-    fetch('/admin/dashboard')
+    fetch('https://ideaproject.herokuapp.com/admin/dashboard')
     .then((response)=> response.json())
     .then((data)=> console.log(data))
     .catch((err)=> console.log(err))

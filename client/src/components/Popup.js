@@ -41,7 +41,7 @@ const userDetails = {
     description: description
 }
 
-fetch(`/app/ideas/${id}`, {
+fetch(`https://ideaproject.herokuapp.com/app/ideas/${id}`, {
     method: "POST"
 ,
 headers: {

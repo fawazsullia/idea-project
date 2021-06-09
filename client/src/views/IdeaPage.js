@@ -39,7 +39,7 @@ function IdeaPage() {
     //on component mount
 useEffect(() => {
     
-    fetch(`/app/ideas/${id}`)
+    fetch(`https://ideaproject.herokuapp.com/app/ideas/${id}`)
     .then((response)=> response.json())
     .then((data)=> {
         setideas(data)}
