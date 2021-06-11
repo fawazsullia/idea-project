@@ -34,7 +34,7 @@ function Navbar() {
     </ul>
     </div>
 
-    <div style={{ width : navbarOpen ? "0px" : "200px" }} className={navbarStyle.navcontainer}>
+    <div style={{ width : navbarOpen ? "200px" : "0px" }} className={navbarStyle.navcontainer}>
 
     <ul className={navbarStyle.navlist}>
         <li>How it works</li>

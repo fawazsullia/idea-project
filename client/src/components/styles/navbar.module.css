@@ -13,18 +13,34 @@
 }
 
 .navlist{
-    display: flex;
+    display: block;
+    text-align: center;
+    background-color: hsl(225, 46%, 32%);
+    padding: 10px;
+    height: 100%;
     list-style-type: none;
-    align-items: center;
+    
 }
 
-.navlist li {
-    margin : 0 10px;
-    color:hsl(30, 46%, 32%)
+.navcontainer{
+    position: fixed;
+    top : 10%;
+    right: 0;
+    height: 78vh;
+    transition-duration: 0.7s;
+}
+
+.navlist li{
+margin-top: 20px;
+margin-bottom: 20px;
+color: white;
+font-size: 1.2rem;
+display: block;
+transition: 0.3s;
 
 }
 
-.navbtn button{
+.navbtn span{
     background-color: hsl(225, 46%, 32%) ;
     color: white;
     width: min-content;
@@ -39,7 +55,7 @@
 
 .hamburger{
     width: 60px;
-    display: none;
+    display: block;
 }
 
 .hamburger li{
@@ -52,11 +68,17 @@
 
 }
 
+.hamburger:hover {
+    cursor: pointer;
+}
+
 @media(max-width : 480px){
 
     .hamburger{
         display: block;
     }
+
+   
 
     .navcontainer{
         position: fixed;
