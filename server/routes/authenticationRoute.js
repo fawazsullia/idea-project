@@ -8,10 +8,9 @@ const saltRounds = 10;
 router.post('/login', async (req, res)=>{
     const { userName, password} = req.body;
 
-    if(req.session){
+    if(req.session.userID){
 
 res.status(200).json({userName: req.session.userName, signedIn : true, userType: req.session.userType }).end();
-console.log("req.sessiion true")
     }
 
     else {
@@ -23,8 +22,11 @@ console.log("req.sessiion true")
     const match = await bcrypt.compare(password, data.hash);
 
     if(match){
-        req.session.user = { userName: data.userName, userID : data._id, userType : data.userType}
-        console.log(req.session.user)
+
+        req.session.userName = data.userName
+        req.session.userID = data._id, 
+        req.session.userType = data.userType
+    req.session.save(()=> console.log("session saved"))
         res.status(200).json({userName: req.session.userName, signedIn : true, userType: req.session.userType }).end();
     }
     else { res.status(403).json({message: "Your username or password doesn't match"}).end()}

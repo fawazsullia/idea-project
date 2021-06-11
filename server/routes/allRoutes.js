@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get("/", (req, res)=>{
 
-if(!req.session && req.sessionID){
+if(!req.session.userID){
     res.json({userName: "", signedIn : false, userType: "" }).end()
 }
 else {

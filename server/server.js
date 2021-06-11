@@ -26,6 +26,9 @@ store.on('error', function(error) {
   console.log(error);
 });
 
+app.use(cors());
+
+
 app.use(session({
   genid : () => {  uuidv4()  },
   secret: process.env.SECRET,
@@ -36,14 +39,12 @@ app.use(session({
  name : "ideaprojectuserlogin",
  cookie : {
    maxAge : 7 * 24 * 60 * 60 * 1000,
+   domain : "localhost"
  }
 }))
 
 
 
-app.use(cors({
-  //origin: 'https://theideaproject.netlify.app/',
-}));
 
 app.use(express.json())
 
@@ -53,7 +54,7 @@ const submit = require('./routes/submitRoutes')
 const ideas = require('./routes/ideasRoutes')
 const admin = require('./routes/adminDashRoutes')
 const auth = require('./routes/authenticationRoute')
-//const allRoutes = require('./routes/allRoutes')
+const allRoutes = require('./routes/allRoutes')
 
 
 
