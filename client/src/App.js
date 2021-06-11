@@ -1,4 +1,4 @@
-import React, {useState, Suspense} from 'react'
+import React, {useState, useEffect, Suspense} from 'react'
 import { Route, Switch } from 'react-router';
 import * as appStyle from './app.module.css'
 import AdminDashboard from './views/admin/dashboard';
@@ -12,7 +12,13 @@ const Submit = React.lazy(()=> import('./views/Submit'))
 const AdminLogin = React.lazy(()=> import('./views/admin/login'))
 
 
-const [currentUser, setcurrentUser] = useState({ userName : "asdsadas", loggedIn: true, admin : true})
+const [currentUser, setcurrentUser] = useState({ userName : "", loggedIn: false, userType : "user"});
+
+useEffect(() => {
+ fetch('https://ideaproject.herokuapp.com/')
+ .then((response)=> response.json() )
+ .then((data)=>console.log(data))
+}, [])
 
 
   
