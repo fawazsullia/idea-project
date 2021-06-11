@@ -36,3 +36,57 @@
 .navbtn button:hover{
     cursor: pointer;
 }
+
+.hamburger{
+    width: 60px;
+    display: none;
+}
+
+.hamburger li{
+    background: hsl(225, 46%, 32%);
+    list-style: none;
+    height: 4px;
+    width: 100%;
+    margin-top: 3px;
+
+
+}
+
+@media(max-width : 480px){
+
+    .hamburger{
+        display: block;
+    }
+
+    .navcontainer{
+        position: fixed;
+        top : 10%;
+        right: 0;
+        height: 78vh;
+        transition-duration: 0.7s;
+
+    }
+
+.navlist{
+    display: block;
+    text-align: center;
+    background-color: hsl(225, 46%, 32%);
+    padding: 10px;
+    height: 100%;
+
+
+}
+
+.navlist li{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 1.2rem;
+    display: block;
+    transition: 0.3s;
+
+}
+
+
+
+}

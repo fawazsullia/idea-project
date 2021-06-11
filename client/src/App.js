@@ -9,7 +9,7 @@ const Browse = React.lazy(()=> import('./views/Browse'))
 const IdeaPage = React.lazy(()=> import('./views/IdeaPage'))
 const Main = React.lazy(()=> import('./views/Main'))
 const Submit = React.lazy(()=> import('./views/Submit'))
-const AdminLogin = React.lazy(()=> import('./views/admin/login'))
+const Login = React.lazy(()=> import('./views/login'))
 
 
 const [currentUser, setcurrentUser] = useState({ userName : "", loggedIn: false, userType : "user"});
@@ -17,7 +17,7 @@ const [currentUser, setcurrentUser] = useState({ userName : "", loggedIn: false,
 useEffect(() => {
  fetch('https://ideaproject.herokuapp.com/')
  .then((response)=> response.json() )
- .then((data)=>console.log(data))
+ .then((data)=> setcurrentUser(data))
 }, [])
 
 
@@ -48,8 +48,8 @@ useEffect(() => {
       <Submit />
       </Route>
 
-      <Route path="/admin/login">
-        <AdminLogin currentUser={currentUser} />
+      <Route path="/login">
+        <Login currentUser={currentUser} />
       </Route>
 
       <Route path="/admin/dashboard">

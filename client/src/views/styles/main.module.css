@@ -12,6 +12,7 @@
 .herotext {
   width: 80%;
   margin-left: 5%;
+  max-height: 80vh;
 }
 
 .herotext h1 {
@@ -76,4 +77,59 @@
   margin-top: 0;
   text-align: center;
   color:hsl(225, 46%, 32%)
+}
+
+/*1200 */
+
+@media(max-width : 1200px){
+
+  .herotext h1 {
+    font-size: 3.5rem;
+    color: #3A539B;
+  }
+
+
+}
+
+
+/*865 */
+@media(max-width : 865px){
+
+  .herotext h1 {
+    font-size: 3.2rem;
+  }
+
+  .herotext p {
+    font-size: 1rem;
+  
+  }
+
+
+}
+/*1200 */
+/*1200 */
+/*300 */
+
+@media(max-width : 480px){
+
+  .herotext h1 {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  .herotext p {
+    font-size: 0.8rem;
+  
+  }
+
+  .heroimage {
+    display: none;
+  }
+
+  .herotext button {
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+
 }

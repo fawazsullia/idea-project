@@ -4,11 +4,16 @@ import {Link} from 'react-router-dom'
 
 function AdminDashboard({currentUser}) {
 
-   const {loggedIn, admin} = currentUser
+    let access;
 
-const [pendingIdeas, setpendingIdeas] = useState([
-    {title : "ajdbhausbdas", description: "dsadajdsaasaashjduadjuansd saduand sjadnaudn asudnaudn uasdaund sadnaudn usadnaun", 
-    isValidated : "false"}
+    if(currentUser.loggedIn && currentUser.userType === "admin"){
+         access = true
+    }
+    else {
+        access = false
+    }
+
+const [pendingIdeas, setpendingIdeas] = useState([{}
 ])
 
 //getting pending ideas
@@ -34,7 +39,7 @@ const deleteIdea = () => {
 }
     
 
-{ if(loggedIn && admin){
+{ if(access){
     return(
         <div className={dashboardStyle.container}>
 
