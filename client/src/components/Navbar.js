@@ -37,6 +37,7 @@ function Navbar() {
     <div style={{ width : navbarOpen ? "200px" : "0px" }} className={navbarStyle.navcontainer}>
 
     <ul className={navbarStyle.navlist}>
+    <li><NavLink to="/">Home</NavLink></li>
         <li>How it works</li>
         <li>About</li>
         <li className={navbarStyle.navbtn}>{

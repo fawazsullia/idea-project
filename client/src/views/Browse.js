@@ -73,10 +73,11 @@ fetch(`app/browse?count=${currentCount}`)
                  )}
              </div>
                  
-
+                    
              <div className={browseStyle.morebtn}>
                  <button type="button" onClick={clickedMore}>More</button>
              </div>
+                    
          </section>
         </div>
     )

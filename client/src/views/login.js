@@ -1,7 +1,15 @@
 import React, {useState} from 'react'
 import * as loginStyle from './styles/login.module.css'
 
-function AdminLogin() {
+function AdminLogin({loginUser}) {
+
+
+    const authenticate = (res)=>{
+if(res.userName){
+        loginUser(res);
+}
+else { alert(res.message) }
+    }
 
     const [loginDetails, setloginDetails] = useState({ userName: "", password: ""})
 
@@ -15,7 +23,7 @@ fetch("https://ideaproject.herokuapp.com/auth/login", { method : "POST", headers
 body : details
 })
 .then((response)=> response.json())
-.then((res)=> console.log(res))
+.then((res)=> authenticate(res))
 .catch((err)=>console.log(err))
 }
     

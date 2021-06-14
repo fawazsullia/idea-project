@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import * as submitformStyle from './styles/submit.module.css'
-import {Link, useHistory} from 'react-router-dom'
 import Navbar from '../components/Navbar'
 
 
@@ -19,12 +18,23 @@ function Submit(){
     const [email, setemail] = useState("")
     const [social, setsocial] = useState("")
 
+    let nameEmpty = name === "" ? true : false
+    let titleEmpty = title === "" ? true : false
+    let descriptionEmpty = description === "" ? true : false
+
 
     
 //on form submit
     function submitForm(e){
 
         e.preventDefault();
+
+        if(titleEmpty && descriptionEmpty &&nameEmpty){
+
+alert("Title, description and name are required")
+
+        }
+        else{
 
         //from states
         const ideaDetails = {
@@ -45,16 +55,16 @@ function Submit(){
     body: JSON.stringify(ideaDetails)
 
 })
-.then((res)=> res.json())
-.then((res)=> {  console.log(res); 
-     })
+.then((res)=> alert(`Your idea has been Submitted.
+Thank You :)`))
+
 
 settitle("")
 setdescription("")
 setname("")
 setemail("")
 setsocial("")
-
+        }
     }
     //form submit ends here
 

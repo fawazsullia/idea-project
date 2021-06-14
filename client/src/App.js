@@ -21,6 +21,11 @@ useEffect(() => {
 }, [])
 
 
+const loginUser = (data)=>{
+  setcurrentUser({userName: data.userName, loggedIn: data.loggedIn, userType : data.userType});
+}
+
+
   
   return (
 

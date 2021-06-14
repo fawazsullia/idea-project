@@ -28,6 +28,7 @@
     right: 0;
     height: 78vh;
     transition-duration: 0.7s;
+    z-index: 2;
 }
 
 .navlist li{

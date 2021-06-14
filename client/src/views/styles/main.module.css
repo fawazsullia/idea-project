@@ -79,6 +79,9 @@
   color:hsl(225, 46%, 32%)
 }
 
+
+/* Media queries*/
+
 /*1200 */
 
 @media(max-width : 1200px){
@@ -106,9 +109,44 @@
 
 
 }
-/*1200 */
-/*1200 */
-/*300 */
+/*746*/
+@media(max-width : 746px){
+
+  .herotext h1 {
+    font-size: 2.7rem;
+  }
+
+  .herotext p {
+    font-size: 1rem;
+  
+  }
+
+
+}
+
+/*630px*/
+
+@media(max-width : 630px){
+
+  .herotext h1 {
+    font-size: 2.7rem;
+  }
+
+  .herotext p {
+    font-size: 1rem;
+  
+  }
+
+  .heroimage {
+    display: none;
+  }
+
+
+}
+
+
+
+/*480 */
 
 @media(max-width : 480px){
 
@@ -118,7 +156,7 @@
   }
 
   .herotext p {
-    font-size: 0.8rem;
+    font-size: 1rem;
   
   }
 

@@ -14,7 +14,7 @@ function Popup({closePopup, id, title, description}) {
     //check if email is empty or invalid
     let emailValid = function(){
 
-        let emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[a-zA-Z]+$/ig
+        let emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z][a-zA-Z]+$/ig
         if(userData.email !== "" && userData.email.match(emailRegex) ){
             return true
         }
@@ -74,7 +74,7 @@ setuserData({name:"", email: ""})
            <ul>
            
         <li>I will try my best to complete the project</li>
-           <li>I will not sell the idea as your own</li>
+           <li>I will not sell the idea as my own</li>
            </ul>
         
            <form>

@@ -55,7 +55,7 @@ useEffect(() => {
     return (
 
 
-        <div>
+       < div>
 
   
         {/* popup component */}
@@ -74,7 +74,7 @@ useEffect(() => {
         <h2>Description</h2>
             <p>{ideas.description}</p>
         </div>
-        <p style={{fontSize: "1.1rem", fontWeight: "700", marginTop: "25px"}}>By:</p>
+        <p style={{fontSize: "1.1rem", fontWeight: "700", marginTop: "25px", marginLeft: "5%"}}>By:</p>
 
         <div className={ideaPageStyle.authordetails}>
         <p className={ideas.name}>{ideas.name}</p>

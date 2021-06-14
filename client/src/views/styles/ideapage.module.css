@@ -1,3 +1,5 @@
+
+
 .backbtndiv{
     position: absolute;
     right: 7%;
@@ -37,6 +39,10 @@ color:  #3A539B;}
     font-size: 1.2rem;
 }
 
+.descriptioncontainer h2{
+    font-size: 1.4rem;
+}
+
 .descriptioncontainer p{
     color: hsl(30, 46%, 32%);
 }
@@ -62,3 +68,77 @@ color:  #3A539B;}
 .takenbtn button:hover{
     cursor: pointer;
 }
+
+/* 950 480 */
+
+
+@media(max-width: 1000px) {
+
+    .titlecontainer h2{
+        font-size: 1.8rem;
+        font-weight: 500;
+        }
+
+        .bodycontainer{
+            margin: 7% auto auto 28% ;
+            width: 50%;
+            color:  #3A539B;}
+
+    
+}
+
+
+@media(max-width : 600px){
+
+    .titlecontainer{
+      position: relative;
+      border-radius: 0;
+      background-color: white;
+      margin: 0;
+        max-height: 30vh;  
+        width: auto;  
+    }
+
+    .titlecontainer h2{
+        font-size: 1.8rem;
+        font-weight: 500;
+        height: auto;
+        max-width: 80%;
+        color: hsl(225, 46%, 32%);
+        
+    }
+
+    .backbtndiv{
+        display: block;
+        right: 3%;
+        top: 3%;
+        }
+
+    .bodycontainer{
+        width: 80%;
+        color:  #3A539B;
+        margin: 0%;
+    }
+
+    .descriptioncontainer{
+        margin: auto auto auto 5%;
+    }
+
+    .authordetails {
+    
+        margin: 20px auto 30px 5%;
+    }
+
+    .takenbtn button{
+        padding: 8px;
+        margin-top: 5px;
+        margin-left: 5%;
+        border: none;
+        background-color: hsl(225, 46%, 32%);;
+        color: white;
+    }
+
+    
+
+}
+

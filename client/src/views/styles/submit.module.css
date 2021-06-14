@@ -76,3 +76,62 @@ padding-top: 15px;
     
 }
 
+@media(max-width: 900px){
+
+    .container {
+        height: auto;
+    }
+
+    .formcontainer{
+        width: 60%;
+        background-color: #3A539B;
+        margin: 5vh auto 5vh auto;
+        vertical-align:middle;
+    
+    padding-top: 15px;
+    height: auto;
+    }
+
+    .formcontainer form{
+        display: block;
+        width: 80%;
+        height: auto;
+        margin: 0 auto 5vh auto;
+    }
+
+    .left{
+        width: 90%;
+    }
+    .right{
+        width:90%;
+    }
+
+    .title{
+        height: 10vh;
+    }
+    
+    .description{
+        height: 30vh;
+    }
+
+    .right button{
+        
+        margin-bottom: 20px;
+        
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .formcontainer form{
+        width: 80%;
+        
+    }
+
+    .formcontainer{
+        width: 80%;
+        
+    }
+    
+}
