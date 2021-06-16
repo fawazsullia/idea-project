@@ -5,7 +5,7 @@ const cors = require('cors');
 require('dotenv').config();
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
-const { v4: uuidv4  } = require('uuid');
+var uid = require('uid-safe')
 
 //Mongo atlas credentials
 const USER_NAME = process.env.USER_NAME;
@@ -30,16 +30,16 @@ app.use(cors());
 
 
 app.use(session({
-  genid : () => {  uuidv4()  },
+  genid : () => {  return uid(14).then((ret)=> console.log(ret)) },
   secret: process.env.SECRET,
+  name : "ideaproject",
   resave: false,
   saveUninitialized: false,
-  //cookie: { secure: true },
  store : store,
  name : "ideaprojectuserlogin",
  cookie : {
-   maxAge : 7 * 24 * 60 * 60 * 1000,
-   domain : "localhost"
+   secure: true,
+   maxAge : 604800000,
  }
 }))
 

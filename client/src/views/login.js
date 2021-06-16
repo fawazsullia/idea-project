@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
 import * as loginStyle from './styles/login.module.css'
+import {useHistory} from 'react-router-dom'
 
 function AdminLogin({loginUser}) {
+
+    const history = useHistory()
 
 
     const authenticate = (res)=>{
@@ -23,7 +26,7 @@ fetch("https://ideaproject.herokuapp.com/auth/login", { method : "POST", headers
 body : details
 })
 .then((response)=> response.json())
-.then((res)=> authenticate(res))
+.then((res)=> {authenticate(res);  res.userType == "admin" ? history.push("/admin/dashboard") : history.push("/app/browse")  } )
 .catch((err)=>console.log(err))
 }
     

@@ -68,6 +68,10 @@
     padding: 10px;
 }
 
+.container form button:hover{
+    cursor: pointer;
+}
+
 
 @media (max-width: 850px){
 

@@ -3,6 +3,9 @@ import { useParams } from 'react-router'
 import * as ideaPageStyle from './styles/ideapage.module.css'
 import {Link} from 'react-router-dom'
 import Popup from '../components/Popup'
+import {Helmet} from 'react-helmet'
+import DataLoading from '../components/DataLoading'
+
 
 
 //Renders individual idea details, depending on the idea selected from /app/browse.
@@ -18,6 +21,8 @@ function IdeaPage() {
         taken : false,
     }
     )
+    const [loading, setloading] = useState(true)
+
 
     //state for popup which triggers on 'mark taken' button
     const [popupVisible, setpopupVisible] = useState(false)
@@ -42,7 +47,9 @@ useEffect(() => {
     fetch(`https://ideaproject.herokuapp.com/app/ideas/${id}`)
     .then((response)=> response.json())
     .then((data)=> {
-        setideas(data)}
+        setideas(data);
+        setloading(false)                    
+    }
         )
         .catch(err => console.log(err));
 
@@ -51,11 +58,28 @@ useEffect(() => {
 }, [])
 
     
+if(loading){ return(
+    <>
+    <Helmet>
+       <title>Idea Project | {ideas.title}</title>
+       <meta name="description" content="" />
+    </Helmet>
+    <DataLoading />
+    </>
+)
+}
 
+
+else{
     return (
 
 
        < div>
+
+       <Helmet>
+       <title>Idea Project | {ideas.title}</title>
+       <meta name="description" content="" />
+       </Helmet>
 
   
         {/* popup component */}
@@ -91,7 +115,7 @@ useEffect(() => {
     
 
         </div> 
-    )
+    )}
 }
 
 export default IdeaPage

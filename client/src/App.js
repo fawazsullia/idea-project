@@ -2,6 +2,7 @@ import React, {useState, useEffect, Suspense} from 'react'
 import { Route, Switch } from 'react-router';
 import * as appStyle from './app.module.css'
 import AdminDashboard from './views/admin/dashboard';
+import DataLoading from './components/DataLoading';
 
 function App() {
 
@@ -12,7 +13,9 @@ const Submit = React.lazy(()=> import('./views/Submit'))
 const Login = React.lazy(()=> import('./views/login'))
 
 
-const [currentUser, setcurrentUser] = useState({ userName : "", loggedIn: false, userType : "user"});
+const [currentUser, setcurrentUser] = useState({ userName : "", signedIn: false, userType : "user"});
+
+console.log(currentUser)
 
 useEffect(() => {
  fetch('https://ideaproject.herokuapp.com/')
@@ -22,7 +25,7 @@ useEffect(() => {
 
 
 const loginUser = (data)=>{
-  setcurrentUser({userName: data.userName, loggedIn: data.loggedIn, userType : data.userType});
+  setcurrentUser({userName: data.userName, signedIn: data.signedIn, userType : data.userType});
 }
 
 
@@ -54,12 +57,14 @@ const loginUser = (data)=>{
       </Route>
 
       <Route path="/login">
-        <Login currentUser={currentUser} />
+        <Login currentUser={currentUser} loginUser={loginUser} />
       </Route>
 
       <Route path="/admin/dashboard">
         <AdminDashboard currentUser={currentUser} />
       </Route>
+
+      
 
 </Suspense>
       </Switch>

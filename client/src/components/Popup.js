@@ -1,9 +1,13 @@
 import React, {useState} from 'react'
 import * as popupStyle from './styles/popup.module.css'
+import {useHistory} from 'react-router-dom'
 
 //collects data of the one who is interested in implementing the idea
 
 function Popup({closePopup, id, title, description}) {
+
+    const history = useHistory()
+
 
     const [userData, setuserData] = useState({ name: "", email: ""})
 
@@ -51,9 +55,8 @@ headers: {
 body : JSON.stringify(userDetails)
 })
 .then((res)=> res.json())
-.then((res)=> console.log("done"))
+.then((response)=> {alert(response.message); history.push("/app/browse")   })
 
-alert("Congragulations! You can now start working on the idea. We have sent you an email with all the details about the idea. Please check spam folder in case you don't find it.")
 
 setuserData({name:"", email: ""})
 

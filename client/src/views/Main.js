@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import * as mainStyle from './styles/main.module.css'
+import {Helmet} from 'react-helmet'
 
 // Home page of the-idea-project
 // No state is saved here
@@ -14,7 +15,13 @@ import * as mainStyle from './styles/main.module.css'
     return (
         <div>
 
+      
+
       <Navbar />
+      <Helmet>
+<title>Ideas for your next project | Idea Project</title>
+<meta name="description" content="Want cool ideas for your next project? A community curated ideas for you to work on" />
+</Helmet>
 
           <div className={mainStyle.herocontainer}>
 

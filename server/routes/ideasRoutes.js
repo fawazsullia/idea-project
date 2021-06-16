@@ -24,6 +24,16 @@ router.post('/:id', async (req, res)=>{
 
 try{
 let id = req.params.id;
+
+
+let data = await IdeaDetails.findById(id);
+
+if(data.taken){
+    await res.json({message: "Shoot. Someone took it just now!"})
+}
+
+else {
+
 await IdeaDetails.findByIdAndUpdate(id, { $set: { taken: true }}, {useFindAndModify: true})
 
 //new instance of UserDetails.
@@ -49,10 +59,11 @@ await userDetails.save()
 await sendEmail(req.body.email, message)
 
 
-await res.status(200).json({message : "Saved successfully"}).end()
-}
+await res.status(200).json({message : "Congrats! You can now start working on the idea. Check mail for the details"}).end()
+}}
 catch(err){
-res.status(500).json({error: err, message: "Couldn't save data at this moment"})
+res.status(500).json({message: "Couldn't save data at this moment"});
+console.log(err);
 }
 
 })

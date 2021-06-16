@@ -6,7 +6,7 @@ function AdminDashboard({currentUser}) {
 
     let access;
 
-    if(currentUser.loggedIn && currentUser.userType === "admin"){
+    if(currentUser.signedIn && currentUser.userType === "admin"){
          access = true
     }
     else {
@@ -20,7 +20,7 @@ const [pendingIdeas, setpendingIdeas] = useState([{}
 useEffect(() => {
     fetch('https://ideaproject.herokuapp.com/admin/dashboard')
     .then((response)=> response.json())
-    .then((data)=> console.log(data))
+    .then((data)=> setpendingIdeas(data))
     .catch((err)=> console.log(err))
 
 }, [])
@@ -30,11 +30,29 @@ useEffect(() => {
 
 
 
-const approveIdea =() => {
+const approveIdea =(e) => {
+
+    fetch("https://ideaproject.herokuapp.com/admin/dashboard", {
+        method : "POST",
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        body : JSON.stringify({  id : e.target.value   })
+    })
+    .then((res)=> setpendingIdeas(pendingIdeas.filter((ideas)=> ideas._id !== e.target.value  )))
 
 }
 
-const deleteIdea = () => {
+const deleteIdea = (e) => {
+
+    fetch("https://ideaproject.herokuapp.com/admin/dashboard", {
+        method : "POST",
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        body : JSON.stringify({  id : e.target.value   })
+    })
+    .then((res)=> setpendingIdeas(pendingIdeas.filter((ideas)=> ideas._id !== e.target.value  )))
 
 }
     
@@ -50,8 +68,8 @@ const deleteIdea = () => {
                 <div className={dashboardStyle.card}>
                 <h3>{ideas.title}</h3>
                 <p>{ideas.description}</p>
-                <button type="button" onClick={approveIdea}>Approve</button>
-                <button type="button" onClick={deleteIdea}>Delete</button>
+                <button type="button" value={ideas._id} onClick={approveIdea}>Approve</button>
+                <button type="button" value={ideas._id} onClick={deleteIdea}>Delete</button>
                 </div>)
             })}
         </div>

@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import * as browseStyle from './styles/browse.module.css'
 import Navbar from '../components/Navbar'
 import {Link} from 'react-router-dom'
+import {Helmet} from 'react-helmet'
+import DataLoading from '../components/DataLoading'
 
 
 // Path: /app/browse
@@ -14,6 +16,7 @@ function Browse() {
 
     const [ideas, setideas] = useState([])
     const [currentCount, setcurrentCount] = useState(16)
+    const [loading, setloading] = useState(true)
 
 // On component render fetch data from server
 
@@ -25,7 +28,8 @@ fetch('https://ideaproject.herokuapp.com/app/browse?count=16')
 .then((data)=> {
 
         //set the received data as the state
-setideas(data)
+setideas(data);
+setloading(false)
 
 })
 .catch((err)=> console.log(err))
@@ -42,18 +46,33 @@ setcurrentCount(count)
 
 fetch(`app/browse?count=${currentCount}`)
 .then((response) => response.json())
-.then((data) => setideas(data))
+.then((data) => {setideas(data);  setloading(false)})
 .catch((err)=> console.log(err))
 
 
 }
 
+if(loading){  return (  <>  <Navbar />
+    <Helmet>
+<title>Browse Ideas | Idea Project</title>
+<meta name="description" content="Browse from our list of ideas and start working on that project!" />
+</Helmet><DataLoading />
+</> )    }
+
+else{ 
+
 
     return (
+        <>
 
         <div>
+        
 
         <Navbar />
+        <Helmet>
+<title>Browse Ideas | Idea Project</title>
+<meta name="description" content="Browse from our list of ideas and start working on that project!" />
+</Helmet>
 
          <section className={browseStyle.container}> 
              <div>
@@ -80,7 +99,9 @@ fetch(`app/browse?count=${currentCount}`)
                     
          </section>
         </div>
+        </>
     )
+                 }
 }
 
 export default Browse
