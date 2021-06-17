@@ -20,9 +20,12 @@ const handleLogin = ()=> {
 
 const details = JSON.stringify(loginDetails)
 
-fetch("https://ideaproject.herokuapp.com/auth/login", { method : "POST", headers : { 
-    'Content-Type' : 'application/json'
-},
+fetch("https://ideaproject.herokuapp.com/auth/login", { 
+    method : "POST", 
+    credentials : "include",
+    headers : { 
+    'Content-Type' : 'application/json',
+    },
 body : details
 })
 .then((response)=> response.json())

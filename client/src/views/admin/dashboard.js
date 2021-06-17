@@ -62,6 +62,7 @@ const deleteIdea = (e) => {
         <div className={dashboardStyle.container}>
 
         <h3>Welcome Fawaz</h3>
+        <Link to="/app/browse">Go to Browse</Link>
         <div className={dashboardStyle.innercontainer}>
             {pendingIdeas.map((ideas)=> {
                 return(

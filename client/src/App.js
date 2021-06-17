@@ -2,7 +2,6 @@ import React, {useState, useEffect, Suspense} from 'react'
 import { Route, Switch } from 'react-router';
 import * as appStyle from './app.module.css'
 import AdminDashboard from './views/admin/dashboard';
-import DataLoading from './components/DataLoading';
 
 function App() {
 
