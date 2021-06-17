@@ -3,13 +3,14 @@ const router = express.Router();
 
 
 router.get("/", (req, res)=>{
+    
 
-if(!req.session.userID){
-    res.json({userName: "", signedIn : false, userType: "" })
+if(req.sessionID && req.session.user){
+    res.status(200).json({userName: req.session.user.userName, signedIn : true, userType: req.session.user.userType})
+
 }
 else {
-
-res.status(200).json({userName: req.session.userName, signedIn : true, userType: req.session.userType})
+    res.status(200).json({userName: "", signedIn : false, userType: "" })
 
 }
     

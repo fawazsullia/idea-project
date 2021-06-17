@@ -5,7 +5,7 @@ const cors = require('cors');
 require('dotenv').config();
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
-var uid = require('uid-safe')
+
 
 //Mongo atlas credentials
 const USER_NAME = process.env.USER_NAME;
@@ -26,17 +26,19 @@ store.on('error', function(error) {
   console.log(error);
 });
 
-app.use(cors());
+app.use(cors({
+origin : "https://ideaproject.netlify.app",
+credentials : true
+}));
 
+app.set('trust proxy', 1)
 
 app.use(session({
-  genid : () => {  return uid(14).then((ret)=> console.log(ret)) },
   secret: process.env.SECRET,
   name : "ideaproject",
   resave: false,
   saveUninitialized: false,
  store : store,
- name : "ideaprojectuserlogin",
  cookie : {
    secure: true,
    maxAge : 604800000,
@@ -59,7 +61,6 @@ const allRoutes = require('./routes/allRoutes')
 
 
 //middleware 
-app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 
 
