@@ -16,6 +16,7 @@ const uri = `mongodb+srv://${USER_NAME}:${PASSWORD}@idea-project.sscfh.mongodb.n
 const PORT = process.env.PORT || 5000;
 
 
+app.set("trust proxy", 1);
 
 const store = new MongoDBStore({
   uri: uri,
@@ -31,9 +32,9 @@ origin : "https://ideaproject.netlify.app",
 credentials : true
 }));
 
-app.set('trust proxy', 1)
 
 app.use(session({
+  key : "user_sid",
   secret: process.env.SECRET,
   name : "ideaproject",
   resave: false,
@@ -42,6 +43,7 @@ app.use(session({
  cookie : {
    secure: true,
    maxAge : 604800000,
+   sameSite: 'none'
  }
 }))
 

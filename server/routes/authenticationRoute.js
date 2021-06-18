@@ -17,13 +17,15 @@ router.post('/login', async (req, res)=>{
     const match = await bcrypt.compare(password, data.hash);
 
     if(match){
-        req.session.user = {
-            userName : data.userName,
-            userID : data._id, 
-            userType : data.userType
-        }
 
-        res.status(200).json({userName: data.userName, signedIn : true, userType: data.userType }).end();
+       req.session.userName = data.userName;
+       req.session.userID = data._id;
+       req.session.userType = data.userType;
+             
+            
+        
+
+       await res.status(200).json({userName: data.userName, signedIn : true, userType: data.userType }).end();
     }
     else { res.status(403).json({message: "Your username or password doesn't match"}).end()}
 

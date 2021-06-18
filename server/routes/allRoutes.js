@@ -5,8 +5,10 @@ const router = express.Router();
 router.get("/", (req, res)=>{
     
 
-if(req.sessionID && req.session.user){
-    res.status(200).json({userName: req.session.user.userName, signedIn : true, userType: req.session.user.userType})
+if(req.session.cookie && req.session.userName){
+    console.log("hit here")
+    console.log(req.session)
+    res.status(200).json({userName: req.session.userName, signedIn : true, userType: req.session.userType})
 
 }
 else {
