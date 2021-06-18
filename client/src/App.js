@@ -1,7 +1,7 @@
 import React, {useState, useEffect, Suspense} from 'react'
 import { Route, Switch } from 'react-router';
 import * as appStyle from './app.module.css'
-import AdminDashboard from './views/admin/dashboard';
+import DataLoading from './components/DataLoading';
 
 function App() {
 
@@ -10,16 +10,21 @@ const IdeaPage = React.lazy(()=> import('./views/IdeaPage'))
 const Main = React.lazy(()=> import('./views/Main'))
 const Submit = React.lazy(()=> import('./views/Submit'))
 const Login = React.lazy(()=> import('./views/login'))
+const AdminDashboard = React.lazy(()=> import('./views/admin/dashboard'))
+const About = React.lazy(()=> import('./views/About'))
 
 
-const [currentUser, setcurrentUser] = useState({ userName : "", signedIn: false, userType : "user"});
+const [currentUser, setcurrentUser] = useState({ userName : "fawaz", signedIn: false, userType : "admin"});
+const [isFetching, setisFetching] = useState(true)
 
-console.log(currentUser)
+
 
 useEffect(() => {
- fetch('https://ideaproject.herokuapp.com/')
+ fetch('https://ideaproject.herokuapp.com/', {
+   credentials: 'include'
+ })
  .then((response)=> response.json() )
- .then((data)=> setcurrentUser(data))
+ .then((data)=> {setcurrentUser(data); setisFetching(false)})
 }, [])
 
 
@@ -34,7 +39,7 @@ const loginUser = (data)=>{
 
     <div className="App">
       <Switch>
-<Suspense fallback={<h2>Loading...</h2>}>
+<Suspense fallback={<DataLoading />}>
 {/* main page view*/ }
         <Route exact path="/">
       <Main />
@@ -60,7 +65,11 @@ const loginUser = (data)=>{
       </Route>
 
       <Route path="/admin/dashboard">
-        <AdminDashboard currentUser={currentUser} />
+        <AdminDashboard currentUser={currentUser} isFetching={isFetching} />
+      </Route>
+
+      <Route path="/about">
+        <About />
       </Route>
 
       

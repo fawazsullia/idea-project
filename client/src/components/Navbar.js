@@ -38,8 +38,7 @@ function Navbar() {
 
     <ul className={navbarStyle.navlist}>
     <li><NavLink to="/">Home</NavLink></li>
-        <li>How it works</li>
-        <li>About</li>
+        <li><NavLink to="/about" >About</NavLink></li>
         <li className={navbarStyle.navbtn}>{
             
            currentPage.pathname !== "/app/submit" ? <NavLink to="/app/submit"><span>Submit</span></NavLink> : 

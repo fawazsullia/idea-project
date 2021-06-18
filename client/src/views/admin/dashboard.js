@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import * as dashboardStyle from './styles/dashboard.module.css'
 import {Link} from 'react-router-dom'
+import DataLoading from '../../components/DataLoading';
 
-function AdminDashboard({currentUser}) {
+function AdminDashboard({currentUser, isFetching}) {
 
     let access;
 
@@ -57,7 +58,9 @@ const deleteIdea = (e) => {
 }
     
 
-{ if(access){
+{ 
+    
+    if(access){
     return(
         <div className={dashboardStyle.container}>
 
@@ -79,9 +82,11 @@ const deleteIdea = (e) => {
         else { return(  <div className={dashboardStyle.oops}><h2>Oops</h2><p>You don't have access to this page.</p><p>Login as an admin to access.</p>
         <p><Link to="/">Return home</Link></p>
         
-        </div>  ) }
+        
+        </div>  ) }}
+
 }
     
-}
+
 
 export default AdminDashboard

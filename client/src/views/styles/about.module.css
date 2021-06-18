@@ -1,0 +1,28 @@
+.container{
+    width: 50%;
+    margin: auto;
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.container h2{
+    font-size: 3rem;
+    color: hsl(225, 46%, 24%);
+    font-weight: 800;
+}
+
+.container p,li{
+    line-height: 1.3rem;
+    color: hsl(225, 56%, 34%);
+}
+
+.container h3{
+    line-height: 0.5rem;
+    color: hsl(85, 46%, 24%);
+}
+
+
+@media(max-width: 480px){
+    .container{
+        width: 80%;
+    }
+}
