@@ -34,7 +34,7 @@ useEffect(() => {
 const approveIdea =(e) => {
 
     fetch("https://ideaproject.herokuapp.com/admin/dashboard", {
-        method : "POST",
+        method : "PUT",
         headers : {
             "Content-Type" : "application/json"
         },
