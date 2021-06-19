@@ -36,8 +36,8 @@ catch(err){
 router.put('/dashboard', async (req, res)=> {
 try{
 const receivedId = req.body.id;
-const updated = await IdeaDetails.findByIdAndUpdate(receivedId, { isValidated : true }, { new : false  } )
-await updated.save()
+console.log(receivedId)
+await IdeaDetails.findByIdAndUpdate(receivedId, { isValidated : true }, { new : false  } )
 await res.status(200).send("updated").end()
 }
 catch(err){
