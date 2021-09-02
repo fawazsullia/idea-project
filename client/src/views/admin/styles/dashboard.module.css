@@ -1,12 +1,28 @@
-.innercontainer{
-    width: 60%;
+.container{
+    width: 80%;
     margin: auto;
+}
+
+.heading{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.heading h2{
+    font-size: 2rem;
+    margin-right: 50px;
+}
+
+.innercontainer{
+    width: 80%;
+    margin: 50px auto;
 }
 
 .card{
     background-color: hsl(214, 42%, 42%);
     color: white;
-    padding: 10px;
+    padding: 10px 20px 15px 20px;
 }
 
 .card h3{
@@ -18,7 +34,7 @@
 }
 
 .card p{
-    max-width: 70%;
+    max-width: 90%;
 }
 
 .card button{
@@ -26,6 +42,11 @@
     background-color: white;
     margin-right: 20px;
     padding: 5px;
+}
+
+.card button:hover{
+    cursor: pointer;
+    outline: 1px solid black;
 }
 
 .oops{
@@ -36,4 +57,12 @@
 .oops h2{
     font-size: 4rem;
 
+}
+
+.nopending{
+    margin-top: 30vh;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: burlywood;
 }

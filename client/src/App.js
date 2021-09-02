@@ -14,7 +14,7 @@ const AdminDashboard = React.lazy(()=> import('./views/admin/dashboard'))
 const About = React.lazy(()=> import('./views/About'))
 
 
-const [currentUser, setcurrentUser] = useState({ userName : "fawaz", signedIn: false, userType : "admin"});
+const [currentUser, setcurrentUser] = useState({ userName : "", signedIn: false, userType : "admin"});
 const [isFetching, setisFetching] = useState(true)
 
 
@@ -25,6 +25,7 @@ useEffect(() => {
  })
  .then((response)=> response.json() )
  .then((data)=> {setcurrentUser(data); setisFetching(false)})
+ .catch((err)=> {console.log(err)})
 }, [])
 
 

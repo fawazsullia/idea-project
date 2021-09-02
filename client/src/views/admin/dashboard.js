@@ -14,15 +14,17 @@ function AdminDashboard({currentUser, isFetching}) {
         access = false
     }
 
-const [pendingIdeas, setpendingIdeas] = useState([{}
+const [pendingIdeas, setpendingIdeas] = useState([
 ])
-
+const [fetching, setfetching] = useState(true)
+console.log(pendingIdeas.length)
 //getting pending ideas
 useEffect(() => {
+
     fetch('https://ideaproject.herokuapp.com/admin/dashboard')
-    .then((response)=> response.json())
-    .then((data)=> setpendingIdeas(data))
-    .catch((err)=> console.log(err))
+    .then((response)=> {response.json();})
+    .then((data)=> {setpendingIdeas(data) ;   setfetching(false)} )
+    .catch((err)=> {console.log(err); setfetching(false)})
 
 }, [])
 
@@ -46,12 +48,8 @@ const approveIdea =(e) => {
 
 const deleteIdea = (e) => {
 
-    fetch("https://ideaproject.herokuapp.com/admin/dashboard", {
-        method : "POST",
-        headers : {
-            "Content-Type" : "application/json"
-        },
-        body : JSON.stringify({  id : e.target.value   })
+    fetch(`https://ideaproject.herokuapp.com/admin/dashboard/${e.target.value}`, {
+        method : "DELETE"
     })
     .then((res)=> setpendingIdeas(pendingIdeas.filter((ideas)=> ideas._id !== e.target.value  )))
 
@@ -61,13 +59,24 @@ const deleteIdea = (e) => {
 { 
     
     if(access){
+        if(fetching){ 
+           return <DataLoading />
+        }
+        else {
     return(
         <div className={dashboardStyle.container}>
-
-        <h3>Welcome Fawaz</h3>
+<div className={dashboardStyle.heading}>
+        <h2>Welcome <span style={{ fontStyle: "italic", color: "salmon" }}>{currentUser.userName}</span></h2>
         <Link to="/app/browse">Go to Browse</Link>
-        <div className={dashboardStyle.innercontainer}>
-            {pendingIdeas.map((ideas)=> {
+        </div>
+
+       
+
+      { pendingIdeas.length ?  <div className={dashboardStyle.innercontainer}>
+            { 
+
+            pendingIdeas.map((ideas)=> { 
+               
                 return(
                 <div className={dashboardStyle.card}>
                 <h3>{ideas.title}</h3>
@@ -76,9 +85,11 @@ const deleteIdea = (e) => {
                 <button type="button" value={ideas._id} onClick={deleteIdea}>Delete</button>
                 </div>)
             })}
-        </div>
+        </div> : <p className={dashboardStyle.nopending}>No ideas to approve right now. Wait for someone to submit an idea</p> }
 
-        </div>) }
+        
+
+        </div>) }}
         else { return(  <div className={dashboardStyle.oops}><h2>Oops</h2><p>You don't have access to this page.</p><p>Login as an admin to access.</p>
         <p><Link to="/">Return home</Link></p>
         
