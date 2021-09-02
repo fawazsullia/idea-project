@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import * as submitformStyle from './styles/submit.module.css'
-import Navbar from '../components/Navbar'
 import {Helmet} from 'react-helmet'
 
 
@@ -78,7 +77,6 @@ setsocial("")
 
 <div>
 
-<Navbar />
 
 <Helmet>
 <title>Submit Ideas | Idea Project</title>

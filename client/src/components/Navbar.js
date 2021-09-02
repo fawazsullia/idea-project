@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {NavLink, useLocation} from 'react-router-dom'
 import * as navbarStyle from './styles/navbar.module.css' 
 
-function Navbar() {
+function Navbar({user}) {
 
     const [navbarOpen, setnavbarOpen] = useState(false)
 
@@ -17,6 +17,8 @@ function Navbar() {
         else {   setnavbarOpen(true) }
 
     }
+
+    
 
     return (
         
@@ -41,10 +43,14 @@ function Navbar() {
         <li><NavLink to="/about" >About</NavLink></li>
         <li className={navbarStyle.navbtn}>{
             
-           currentPage.pathname !== "/app/submit" ? <NavLink to="/app/submit"><span>Submit</span></NavLink> : 
-            <NavLink to="/app/browse"><span>Browse</span></NavLink>
+           currentPage.pathname !== "/app/submit" ? <NavLink to="/app/submit">Submit</NavLink> : 
+            <NavLink to="/app/browse">Browse</NavLink>
            
            }</li> 
+           <li><a href="https://www.notion.so/How-to-use-Idea-Project-b4968be552f24ea8abefb56c97eb5019" target="_blank">How to use</a></li>
+    <li><NavLink to="/login" >Admin Signin</NavLink></li>
+    { user.userType === "admin" ?  <li><NavLink to="/admin/dashboard" >Admin Dashboard</NavLink></li> : <></> }
+
     </ul>
     </div>
 </nav>

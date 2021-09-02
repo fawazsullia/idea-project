@@ -1,7 +1,8 @@
 import React, {useState, useEffect, Suspense} from 'react'
-import { Route, Switch } from 'react-router';
+import { Route, Switch, useLocation } from 'react-router';
 import * as appStyle from './app.module.css'
 import DataLoading from './components/DataLoading';
+import Navbar from './components/Navbar';
 
 function App() {
 
@@ -14,7 +15,7 @@ const AdminDashboard = React.lazy(()=> import('./views/admin/dashboard'))
 const About = React.lazy(()=> import('./views/About'))
 
 
-const [currentUser, setcurrentUser] = useState({ userName : "", signedIn: false, userType : "admin"});
+const [currentUser, setcurrentUser] = useState({ userName : "", signedIn: false, userType : ""});
 const [isFetching, setisFetching] = useState(true)
 
 
@@ -28,22 +29,30 @@ useEffect(() => {
  .catch((err)=> {console.log(err)})
 }, [])
 
+const location = useLocation().pathname
+let navBarVisible;
+if(location === "/" || location === "/app/browse" || location === "/about" || location === "/app/submit" || location === "/login"){
+  navBarVisible = true;
+}
+else { navBarVisible = false }
 
 const loginUser = (data)=>{
   setcurrentUser({userName: data.userName, signedIn: data.signedIn, userType : data.userType});
 }
-
 
   
   return (
 
 
     <div className="App">
+
+{ navBarVisible &&  <Navbar user={currentUser} />}
+
       <Switch>
 <Suspense fallback={<DataLoading />}>
 {/* main page view*/ }
         <Route exact path="/">
-      <Main />
+        <Main />
       </Route>
 
 {/* browse ideas here */}
@@ -78,6 +87,7 @@ const loginUser = (data)=>{
 </Suspense>
       </Switch>
     </div>
+    
   );
 }
 

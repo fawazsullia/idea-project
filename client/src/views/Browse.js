@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import * as browseStyle from './styles/browse.module.css'
-import Navbar from '../components/Navbar'
 import {Link} from 'react-router-dom'
 import {Helmet} from 'react-helmet'
 import DataLoading from '../components/DataLoading'
@@ -52,7 +51,7 @@ fetch(`app/browse?count=${currentCount}`)
 
 }
 
-if(loading){  return (  <>  <Navbar />
+if(loading){  return (  <> 
     <Helmet>
 <title>Browse Ideas | Idea Project</title>
 <meta name="description" content="Browse from our list of ideas and start working on that project!" />
@@ -68,7 +67,6 @@ else{
         <div>
         
 
-        <Navbar />
         <Helmet>
 <title>Browse Ideas | Idea Project</title>
 <meta name="description" content="Browse from our list of ideas and start working on that project!" />

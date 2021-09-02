@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Navbar from '../components/Navbar'
 import * as mainStyle from './styles/main.module.css'
 import {Helmet} from 'react-helmet'
 
@@ -17,7 +16,6 @@ import {Helmet} from 'react-helmet'
 
       
 
-      <Navbar />
       <Helmet>
 <title>Ideas for your next project | Idea Project</title>
 <meta name="description" content="Want cool ideas for your next project? A community curated ideas for you to work on" />

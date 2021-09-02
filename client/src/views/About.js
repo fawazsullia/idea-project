@@ -1,11 +1,9 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
 import * as aboutStyle from './styles/about.module.css'
 
 function HowitWorks() {
     return (
         <div>
-        <Navbar />
 
         <section className={aboutStyle.container}>
 
