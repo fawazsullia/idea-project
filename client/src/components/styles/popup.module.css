@@ -1,7 +1,76 @@
+.container {
+  position: absolute;
+  width: 30vw;
+  background-color: hsl(225, 46%, 42%);
+  color: black;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  border-radius: 0 0 30px 0;
+  box-shadow: 2px 2px 3px black;
+}
 
-.container{
-    position: absolute;
-    width: 30vw;
+.innerContainer {
+  position: relative;
+}
+
+.popupclosebtn {
+  background-color: transparent;
+  color: orange;
+  border: none;
+  font-size: 1rem;
+  float: right;
+}
+
+.popupclosebtn:hover {
+  cursor: pointer;
+}
+
+.contentContainer {
+  margin-top: 5%;
+}
+
+.container input {
+  outline: none;
+  background-color: white;
+  border: none;
+  height: 2rem;
+  box-shadow: 1px 1px 2px black;
+  width: 80%;
+  margin-top: 5px;
+}
+
+.container label {
+  color: white;
+  font-size: 0.9rem;
+}
+
+.container ul {
+  color: white;
+  font-size: 0.9rem;
+}
+
+.container p {
+  color: ghostwhite;
+  font-size: 1.2rem;
+}
+
+.container form button {
+  background-color: white;
+  color: hsl(225, 46%, 42%);
+  border: none;
+  padding: 10px;
+}
+
+.container form button:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 850px) {
+  .container {
+    width: 50vw;
     background-color: hsl(225, 46%, 42%);
     color: black;
     z-index: 1;
@@ -11,99 +80,16 @@
     padding: 40px;
     border-radius: 0 0 30px 0;
     box-shadow: 2px 2px 3px black;
-   
+  }
 }
 
-.innerContainer{
-   position: relative; 
-}
+@media (max-width: 500px) {
+  .container input {
+    width: 90%;
+  }
 
-.popupclosebtn{
-    background-color: transparent;
-    color: orange;
-    border: none;
-    font-size: 1rem;
-    float: right;
-}
-
-.popupclosebtn:hover{
-    cursor: pointer;
-}
-
-
-.contentContainer{
-    margin-top: 5%;
-}
-
-.container input{
-    outline: none;
-    background-color: white;
-    border: none;
-    height: 2rem;
-    box-shadow: 1px 1px 2px black;
-    width: 80%;
-    margin-top: 5px;
-
-}
-
-.container label{
-    color: white;
-    font-size: 0.9rem;
-}
-
-.container ul{
-    color: white;
-    font-size: 0.9rem;
-}
-
-.container p{
+  .container p {
     color: ghostwhite;
-    font-size: 1.2rem;
-}
-
-.container form button{
-    background-color: white;
-    color: hsl(225, 46%, 42%);
-    border: none;
-    padding: 10px;
-}
-
-.container form button:hover{
-    cursor: pointer;
-}
-
-
-@media (max-width: 850px){
-
-    .container{
-        width: 50vw;
-        background-color: hsl(225, 46%, 42%);
-        color: black;
-        z-index: 1;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        padding: 40px;
-        border-radius: 0 0 30px 0;
-        box-shadow: 2px 2px 3px black;
-       
-    }
-
-
-
-}
-
-@media (max-width: 500px){
-
-    .container input{
-       
-        width: 90%;
-    
-    }
-
-    .container p{
-        color: ghostwhite;
-        font-size: 1rem;
-    }
-
+    font-size: 1rem;
+  }
 }

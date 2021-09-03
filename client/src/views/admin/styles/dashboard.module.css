@@ -1,68 +1,65 @@
-.container{
-    width: 80%;
-    margin: auto;
+.container {
+  width: 80%;
+  margin: auto;
 }
 
-.heading{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.heading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.heading h2{
-    font-size: 2rem;
-    margin-right: 50px;
+.heading h2 {
+  font-size: 2rem;
+  margin-right: 50px;
 }
 
-.innercontainer{
-    width: 80%;
-    margin: 50px auto;
+.innercontainer {
+  width: 80%;
+  margin: 50px auto;
 }
 
-.card{
-    background-color: hsl(214, 42%, 42%);
-    color: white;
-    padding: 10px 20px 15px 20px;
+.card {
+  background-color: hsl(214, 42%, 42%);
+  color: white;
+  padding: 10px 20px 15px 20px;
 }
 
-.card h3{
-    font-weight: 500;
-    font-size: 1.5rem;
-    max-width: 70%;
-
-
+.card h3 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  max-width: 70%;
 }
 
-.card p{
-    max-width: 90%;
+.card p {
+  max-width: 90%;
 }
 
-.card button{
-    border: none;
-    background-color: white;
-    margin-right: 20px;
-    padding: 5px;
+.card button {
+  border: none;
+  background-color: white;
+  margin-right: 20px;
+  padding: 5px;
 }
 
-.card button:hover{
-    cursor: pointer;
-    outline: 1px solid black;
+.card button:hover {
+  cursor: pointer;
+  outline: 1px solid black;
 }
 
-.oops{
-    text-align: center;
-    margin-top: 20vh;
+.oops {
+  text-align: center;
+  margin-top: 20vh;
 }
 
-.oops h2{
-    font-size: 4rem;
-
+.oops h2 {
+  font-size: 4rem;
 }
 
-.nopending{
-    margin-top: 30vh;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color:burlywood;
+.nopending {
+  margin-top: 30vh;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: burlywood;
 }

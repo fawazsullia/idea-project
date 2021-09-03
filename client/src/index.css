@@ -1,26 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Big+Shoulders+Display&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Big+Shoulders+Display&display=swap");
 
-html{
+html {
   font-size: 16px;
 }
 
 body {
   margin: 0;
-  font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body :is(h1,h2,h3,h4){
-  font-family: 'Big Shoulders Display', cursive;
+body :is(h1, h2, h3, h4) {
+  font-family: "Big Shoulders Display", cursive;
 }
 
-body a{
-text-decoration: underline;
-color: inherit;
+body a {
+  text-decoration: underline;
+  color: inherit;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

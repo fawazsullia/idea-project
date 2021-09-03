@@ -1,137 +1,126 @@
-
-
-.container{
-    height: 80vh;
-    width: 100%;
-    
+.container {
+  height: 80vh;
+  width: 100%;
 }
 
-.formcontainer{
-    width: 100%;
-    height: 100%;
-    background-color: #3A539B;
-    margin: 5vh auto auto auto;
-    vertical-align:middle;
+.formcontainer {
+  width: 100%;
+  height: 100%;
+  background-color: #3a539b;
+  margin: 5vh auto auto auto;
+  vertical-align: middle;
 
-padding-top: 15px;
+  padding-top: 15px;
 }
 
-.formcontainer label{
-    color: white;
-    margin-bottom: 5px;
+.formcontainer label {
+  color: white;
+  margin-bottom: 5px;
 }
 
-.formcontainer form{
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    height: 80%;
-    margin: 0 auto auto auto;
+.formcontainer form {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: 80%;
+  margin: 0 auto auto auto;
 }
 
-.formcontainer h2{
-    text-align: center;
-    margin-bottom: 15px;
-    color: white;
-    font-weight: 600;
+.formcontainer h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: white;
+  font-weight: 600;
 }
 
-.left{
-    width: 50%;
+.left {
+  width: 50%;
 }
-.right{
-    width:30%;
-}
-
-.title, .description{
-    width: 100%;
-    margin-bottom: 20px;
-    outline: none;
-    padding: 10px;
-    font-size: 1rem;
-    border: none;
+.right {
+  width: 30%;
 }
 
-.title{
-    height: 15%;
+.title,
+.description {
+  width: 100%;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
 }
 
-.description{
-    height: 60%;
+.title {
+  height: 15%;
 }
 
-.right input{
-    height: 5%;
-    width: 100%;
-    margin-bottom: 30px;
-    outline: none;
-    padding: 10px;
-    font-size: 1rem;
-    border: none;
+.description {
+  height: 60%;
 }
 
-.right button{
-    border: none;
-    padding: 10px;
-    
+.right input {
+  height: 5%;
+  width: 100%;
+  margin-bottom: 30px;
+  outline: none;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
 }
 
-@media(max-width: 900px){
+.right button {
+  border: none;
+  padding: 10px;
+}
 
-    .container {
-        height: auto;
-    }
+@media (max-width: 900px) {
+  .container {
+    height: auto;
+  }
 
-    .formcontainer{
-        width: 60%;
-        background-color: #3A539B;
-        margin: 5vh auto 5vh auto;
-        vertical-align:middle;
-    
+  .formcontainer {
+    width: 60%;
+    background-color: #3a539b;
+    margin: 5vh auto 5vh auto;
+    vertical-align: middle;
+
     padding-top: 15px;
     height: auto;
-    }
+  }
 
-    .formcontainer form{
-        display: block;
-        width: 80%;
-        height: auto;
-        margin: 0 auto 5vh auto;
-    }
+  .formcontainer form {
+    display: block;
+    width: 80%;
+    height: auto;
+    margin: 0 auto 5vh auto;
+  }
 
-    .left{
-        width: 90%;
-    }
-    .right{
-        width:90%;
-    }
+  .left {
+    width: 90%;
+  }
+  .right {
+    width: 90%;
+  }
 
-    .title{
-        height: 10vh;
-    }
-    
-    .description{
-        height: 30vh;
-    }
+  .title {
+    height: 10vh;
+  }
 
-    .right button{
-        
-        margin-bottom: 20px;
-        
-    }
+  .description {
+    height: 30vh;
+  }
 
+  .right button {
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 480px) {
+  .formcontainer form {
+    width: 80%;
+  }
 
-    .formcontainer form{
-        width: 80%;
-        
-    }
-
-    .formcontainer{
-        width: 80%;
-        
-    }
-    
+  .formcontainer {
+    width: 80%;
+  }
 }

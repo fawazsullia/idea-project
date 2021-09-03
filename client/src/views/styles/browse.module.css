@@ -20,16 +20,14 @@
   justify-content: center;
   background-color: hsl(214, 46%, 32%);
   box-shadow: 2px 2px 3px black;
-  z-index : 1;
-  
-  /*box-shadow: 2px 2px 5px 0px hsl(30, 46%, 32%);*/
+  z-index: 1;
 
+  /*box-shadow: 2px 2px 5px 0px hsl(30, 46%, 32%);*/
 }
 
-.card:hover{
+.card:hover {
   cursor: pointer;
 }
-
 
 .title {
   padding: 15px;
@@ -37,20 +35,18 @@
   font-size: 1.2rem;
 }
 
-
-.btndiv{
- color: white;
-display: none;
-padding: 20px;
+.btndiv {
+  color: white;
+  display: none;
+  padding: 20px;
 }
 
-
-.morebtn{
+.morebtn {
   margin: 50px auto 30px auto;
   width: 100%;
 }
 
-.morebtn button{
+.morebtn button {
   display: block;
   margin: auto;
   width: auto;
@@ -61,17 +57,15 @@ padding: 20px;
   border-radius: 5px;
 }
 
-.morebtn button:hover{
+.morebtn button:hover {
   cursor: pointer;
-  
 }
 
 /*medi queries*/
 
 /*480px*/
 
-@media(max-width: 480px){
-
+@media (max-width: 480px) {
   .card {
     width: 200px;
     height: 200px;
@@ -82,5 +76,4 @@ padding: 20px;
     color: white;
     font-size: 1.1rem;
   }
-
 }

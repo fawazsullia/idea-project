@@ -1,116 +1,102 @@
-.maincontainer{
-    background-color:white;
-    color: 	hsl(225, 46%, 32%);
-    height: 10vh;
+.maincontainer {
+  background-color: white;
+  color: hsl(225, 46%, 32%);
+  height: 10vh;
 }
 
-.container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    margin: auto;
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
 }
 
-.navlist{
-    display: block;
-    text-align: left;
-    background-color: hsl(225, 46%, 32%);
-    padding: 10px;
-    height: 100%;
-    list-style-type: none;
-    
+.navlist {
+  display: block;
+  text-align: left;
+  background-color: hsl(225, 46%, 32%);
+  padding: 10px;
+  height: 100%;
+  list-style-type: none;
 }
 
-.navcontainer{
-    position: fixed;
-    top : 10%;
-    right: 0;
-    height: 78vh;
-    transition-duration: 0.7s;
-    z-index: 2;
+.navcontainer {
+  position: fixed;
+  top: 10%;
+  right: 0;
+  height: 78vh;
+  transition-duration: 0.7s;
+  z-index: 2;
 }
 
-.navlist li{
-margin-top: 20px;
-margin-bottom: 20px;
-color: white;
-font-size: 1.2rem;
-display: block;
-transition: 0.3s;
-margin-left: 10px;
-
+.navlist li {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 1.2rem;
+  display: block;
+  transition: 0.3s;
+  margin-left: 10px;
 }
 
-.navbtn span{
-    background-color: hsl(225, 46%, 32%) ;
-    color: white;
-    width: min-content;
-    padding: 15px;
-    border: none;
-    border-radius: 15px;
+.navbtn span {
+  background-color: hsl(225, 46%, 32%);
+  color: white;
+  width: min-content;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
 }
 
-.navbtn button:hover{
-    cursor: pointer;
+.navbtn button:hover {
+  cursor: pointer;
 }
 
-.hamburger{
-    width: 60px;
-    display: block;
+.hamburger {
+  width: 60px;
+  display: block;
 }
 
-.hamburger li{
-    background: hsl(225, 46%, 32%);
-    list-style: none;
-    height: 4px;
-    width: 100%;
-    margin-top: 3px;
-
-
+.hamburger li {
+  background: hsl(225, 46%, 32%);
+  list-style: none;
+  height: 4px;
+  width: 100%;
+  margin-top: 3px;
 }
 
 .hamburger:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-@media(max-width : 480px){
+@media (max-width: 480px) {
+  .hamburger {
+    display: block;
+  }
 
-    .hamburger{
-        display: block;
-    }
+  .navcontainer {
+    position: fixed;
+    top: 10%;
+    right: 0;
+    height: 78vh;
+    transition-duration: 0.7s;
+  }
 
-   
-
-    .navcontainer{
-        position: fixed;
-        top : 10%;
-        right: 0;
-        height: 78vh;
-        transition-duration: 0.7s;
-
-    }
-
-.navlist{
+  .navlist {
     display: block;
     text-align: center;
     background-color: hsl(225, 46%, 32%);
     padding: 10px;
     height: 100%;
+  }
 
-
-}
-
-.navlist li{
+  .navlist li {
     margin-top: 20px;
     margin-bottom: 20px;
     color: white;
     font-size: 1.2rem;
     display: block;
     transition: 0.3s;
-
-}
-
-
-
+  }
 }

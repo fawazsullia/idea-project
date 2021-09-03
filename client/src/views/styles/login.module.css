@@ -1,51 +1,45 @@
-
-.container{
-    width: 20vw;
-    background-color: hsl(225, 46%, 42%);
-    color: black;
-    padding: 40px;
-    box-shadow: 2px 2px 3px black;
-    margin: 8% auto auto auto;
-   
+.container {
+  width: 20vw;
+  background-color: hsl(225, 46%, 42%);
+  color: black;
+  padding: 40px;
+  box-shadow: 2px 2px 3px black;
+  margin: 8% auto auto auto;
 }
 
-
-.contentContainer{
-    margin-top: 2%;
+.contentContainer {
+  margin-top: 2%;
 }
 
-.contentContainer h2{
-color: white;
-font-weight: 500;
+.contentContainer h2 {
+  color: white;
+  font-weight: 500;
 }
 
-
-.container input{
-    outline: none;
-    background-color: white;
-    border: none;
-    height: 2rem;
-    box-shadow: 1px 1px 2px black;
-    width: 80%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-
+.container input {
+  outline: none;
+  background-color: white;
+  border: none;
+  height: 2rem;
+  box-shadow: 1px 1px 2px black;
+  width: 80%;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-.container label{
-    color: white;
-    font-size: 0.9rem;
+.container label {
+  color: white;
+  font-size: 0.9rem;
 }
 
-
-.container form button{
-    background-color: white;
-    color: hsl(225, 46%, 42%);
-    border: none;
-    padding: 10px;
-    margin-top: 5px;
+.container form button {
+  background-color: white;
+  color: hsl(225, 46%, 42%);
+  border: none;
+  padding: 10px;
+  margin-top: 5px;
 }
 
-.container form button:hover{
-    cursor: pointer;
+.container form button:hover {
+  cursor: pointer;
 }

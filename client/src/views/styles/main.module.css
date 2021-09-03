@@ -17,13 +17,13 @@
 
 .herotext h1 {
   font-size: 4rem;
-  color: #3A539B;
+  color: #3a539b;
 }
 
 .herotext p {
   font-size: 1.2rem;
   margin-top: -5px;
-  color : hsl(30, 46%, 32%)
+  color: hsl(30, 46%, 32%);
 }
 
 .herotext button {
@@ -34,7 +34,7 @@
   border-radius: 5px;
 }
 
-.herotext button:hover{
+.herotext button:hover {
   cursor: pointer;
 }
 
@@ -48,11 +48,10 @@
   height: 70%;
 }
 
-.submitbtn{
+.submitbtn {
   text-decoration: none;
   color: inherit;
 }
-
 
 /*section that has browse and arrow */
 
@@ -76,80 +75,60 @@
   margin-bottom: 0;
   margin-top: 0;
   text-align: center;
-  color:hsl(225, 46%, 32%)
+  color: hsl(225, 46%, 32%);
 }
-
 
 /* Media queries*/
 
 /*1200 */
 
-@media(max-width : 1200px){
-
+@media (max-width: 1200px) {
   .herotext h1 {
     font-size: 3.5rem;
-    color: #3A539B;
+    color: #3a539b;
   }
-
-
 }
 
-
 /*865 */
-@media(max-width : 865px){
-
+@media (max-width: 865px) {
   .herotext h1 {
     font-size: 3.2rem;
   }
 
   .herotext p {
     font-size: 1rem;
-  
   }
-
-
 }
 /*746*/
-@media(max-width : 746px){
-
+@media (max-width: 746px) {
   .herotext h1 {
     font-size: 2.7rem;
   }
 
   .herotext p {
     font-size: 1rem;
-  
   }
-
-
 }
 
 /*630px*/
 
-@media(max-width : 630px){
-
+@media (max-width: 630px) {
   .herotext h1 {
     font-size: 2.7rem;
   }
 
   .herotext p {
     font-size: 1rem;
-  
   }
 
   .heroimage {
     display: none;
   }
-
-
 }
-
-
 
 /*480 */
 
-@media(max-width : 480px){
-
+@media (max-width: 480px) {
   .herotext h1 {
     font-size: 2rem;
     text-align: left;
@@ -157,7 +136,6 @@
 
   .herotext p {
     font-size: 1rem;
-  
   }
 
   .heroimage {
@@ -168,6 +146,4 @@
     padding: 10px;
     border-radius: 5px;
   }
-
-
 }
