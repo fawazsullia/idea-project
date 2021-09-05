@@ -94,11 +94,15 @@ function AdminDashboard({ currentUser }) {
         {fetching ? (
           <DataLoading />
         ) : (
-          <div className={dashboardStyle.innercontainer}>
+         pendingIdeas.length ? <div className={dashboardStyle.innercontainer}>
             {pendingIdeas.map((ideas) => {
               return <Card key={ideas._id} ideas={ideas} />;
             })}
-          </div>
+          </div> : <p style={{
+            textAlign : "center",
+            marginTop : "28vh",
+            fontSize : "1.2rem"
+          }}>Nothing to moderate. Wait for submissions</p>
         )}
       </div>
     );
