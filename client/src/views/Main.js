@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as mainStyle from "./styles/main.module.css";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 // Home page of the-idea-project
 // No state is saved here

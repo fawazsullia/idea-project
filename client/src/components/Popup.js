@@ -76,12 +76,12 @@ function Popup({ closePopup, id, title, description }) {
           </ul>
 
           <form>
-            <label forHTML="name">Name:</label>
+            <label forhtml="name" >Name:</label>
             <br />
             <input
               name="name"
               style={{
-                outline: nameEmpty ? "solid 1px red" : "solid 1px green",
+                outline: nameEmpty ? "solid 1.5px #800000" : "solid 1px green",
               }}
               type="text"
               value={userData.name}
@@ -95,8 +95,8 @@ function Popup({ closePopup, id, title, description }) {
                 <p
                   style={{
                     marginTop: "3px",
-                    color: "orange",
-                    fontSize: "0.8rem",
+                    color: "#FF5E0E",
+                    fontSize: "0.7rem",
                   }}
                 >
                   A valid name is required
@@ -104,12 +104,12 @@ function Popup({ closePopup, id, title, description }) {
               )}
             </div>
 
-            <label forHTML="email">Email:</label>
+            <label forhtml="email">Email:</label>
             <br />
             <input
               name="email"
               style={{
-                outline: !emailValid() ? "solid 1px red" : "solid 1px green",
+                outline: !emailValid() ? "solid 1.5px #800000" : "solid 1px green",
               }}
               type="email"
               value={userData.email}
@@ -123,8 +123,8 @@ function Popup({ closePopup, id, title, description }) {
                 <p
                   style={{
                     marginTop: "3px",
-                    color: "orange",
-                    fontSize: "0.8rem",
+                    color: "#FF5E0E",
+                    fontSize: "0.7rem",
                   }}
                 >
                   A valid email is required

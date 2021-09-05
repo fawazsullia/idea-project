@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as submitformStyle from "./styles/submit.module.css";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 //form to submit idea
 //contains post request on /app/ideas/:id path

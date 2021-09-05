@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import * as ideaPageStyle from "./styles/ideapage.module.css";
 import { Link } from "react-router-dom";
 import Popup from "../components/Popup";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import DataLoading from "../components/DataLoading";
 
 //Renders individual idea details, depending on the idea selected from /app/browse.

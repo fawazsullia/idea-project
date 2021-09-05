@@ -3,32 +3,32 @@ import * as dashboardStyle from "./styles/dashboard.module.css";
 import { Link } from "react-router-dom";
 import DataLoading from "../../components/DataLoading";
 
-function AdminDashboard({ currentUser, isFetching }) {
+function AdminDashboard({ currentUser }) {
   //checking if the user is admin
   let access =
     currentUser.signedIn && currentUser.userType === "admin" ? true : false;
 
-  const [pendingIdeas, setpendingIdeas] = useState([
-  ]);
+  const [pendingIdeas, setpendingIdeas] = useState([]);
   const [fetching, setfetching] = useState(true);
 
   //getting pending ideas
   useEffect(() => {
-    fetch("https://ideaproject.herokuapp.com/admin/dashboard")
-      .then((response) => {
-        response.json();
-      })
-      .then((res)=> {
-          setpendingIdeas(res);
-          setfetching(false);
+    fetch("https://ideaproject.herokuapp.com/admin/dashboard", {
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setpendingIdeas(data);
+        setfetching(false);
       })
       .catch((err) => {
         setfetching(false);
         console.log(err);
-        
       });
 
-     return () => {  setpendingIdeas([])     }
+    return () => {
+      setpendingIdeas([]);
+    };
   }, []);
 
   const approveIdea = (e) => {
@@ -38,11 +38,12 @@ function AdminDashboard({ currentUser, isFetching }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ id: e.target.value }),
-    }).then((res) =>
+    }).then((res) => {
       setpendingIdeas(
         pendingIdeas.filter((ideas) => ideas._id !== e.target.value)
-      )
-    );
+      );
+      alert("Updated");
+    });
   };
 
   const deleteIdea = (e) => {
@@ -51,60 +52,56 @@ function AdminDashboard({ currentUser, isFetching }) {
       {
         method: "DELETE",
       }
-    ).then((res) =>
+    ).then((res) => {
       setpendingIdeas(
         pendingIdeas.filter((ideas) => ideas._id !== e.target.value)
-      )
+      );
+      alert("Deleted successfully");
+    });
+  };
+
+  //local component to display card. Seperated out to use the key prop in map to avoid warning
+  const Card = ({ ideas }) => {
+    return (
+      <div className={dashboardStyle.card}>
+        <h3>{ideas.title}</h3>
+        <p>{ideas.description}</p>
+        <button type="button" value={ideas._id} onClick={approveIdea}>
+          Approve
+        </button>
+        <button type="button" value={ideas._id} onClick={deleteIdea}>
+          Delete
+        </button>
+      </div>
     );
   };
 
-  console.log(access, fetching, pendingIdeas);
 
+  //rendering starts here
   if (access) {
-
-
-
-      return (
-        <div className={dashboardStyle.container}>
-          <div className={dashboardStyle.heading}>
-            <h2>
-              Welcome{" "}
-              <span style={{ fontStyle: "italic", color: "salmon" }}>
-                {currentUser.userName}
-              </span>
-            </h2>
-            <Link to="/app/browse">Go to Browse</Link>
-          </div>
-
-          
-        {fetching ? <DataLoading /> : <div className={dashboardStyle.innercontainer}>
-              {pendingIdeas.map((ideas) => {
-                return (
-                  <div className={dashboardStyle.card}>
-                    <h3>{ideas.title}</h3>
-                    <p>{ideas.description}</p>
-                    <button
-                      type="button"
-                      value={ideas._id}
-                      onClick={approveIdea}
-                    >
-                      Approve
-                    </button>
-                    <button
-                      type="button"
-                      value={ideas._id}
-                      onClick={deleteIdea}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                );
-              })}
-            </div>}
-          
+    return (
+      <div className={dashboardStyle.container}>
+        <div className={dashboardStyle.heading}>
+          <h2>
+            Welcome{" "}
+            <span style={{ fontStyle: "italic", color: "salmon" }}>
+              {currentUser.userName}
+            </span>
+          </h2>
+          <Link to="/app/browse">Go to Browse</Link>
         </div>
-      );
-    
+
+        {fetching ? (
+          <DataLoading />
+        ) : (
+          <div className={dashboardStyle.innercontainer}>
+            {pendingIdeas.map((ideas) => {
+              return <Card key={ideas._id} ideas={ideas} />;
+            })}
+          </div>
+        )}
+      </div>
+    );
   } else {
     return (
       <div className={dashboardStyle.oops}>

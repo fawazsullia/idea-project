@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as browseStyle from "./styles/browse.module.css";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import DataLoading from "../components/DataLoading";
 
 // Path: /app/browse
@@ -25,6 +25,8 @@ function Browse() {
         setloading(false);
       })
       .catch((err) => console.log(err));
+
+      return ()=> { setideas([])   }
   }, []);
 
   // function that is fired when users click in button 'more'
@@ -41,8 +43,28 @@ function Browse() {
         setideas(data);
         setloading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {console.log(err); setloading(false)});
   };
+
+
+const Card = ({idea})=> {
+  return     <div className={browseStyle.card}>
+  <Link
+    style={{ textDecoration: "none", color: "white" }}
+    to={`/app/ideas/${idea._id}`}
+  >
+    <div>
+      <div className={browseStyle.title}>
+        <p>" {idea.title} "</p>
+      </div>
+      <div className={browseStyle.btndiv}></div>
+    </div>
+  </Link>
+</div>
+}
+
+
+  //rendering starts here
 
   if (loading) {
     return (
@@ -74,19 +96,7 @@ function Browse() {
 
             <div className={browseStyle.cardscontainer}>
               {ideas.map((idea) => (
-                <div className={browseStyle.card}>
-                  <Link
-                    style={{ textDecoration: "none", color: "white" }}
-                    to={`/app/ideas/${idea._id}`}
-                  >
-                    <div>
-                      <div className={browseStyle.title}>
-                        <p>" {idea.title} "</p>
-                      </div>
-                      <div className={browseStyle.btndiv}></div>
-                    </div>
-                  </Link>
-                </div>
+            <Card idea={idea} key={idea._id} />
               ))}
             </div>
 

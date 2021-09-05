@@ -1,19 +1,29 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import * as navbarStyle from "./styles/navbar.module.css";
 
-function Navbar({ user }) {
+function Navbar({ user, appRef }) {
   const [navbarOpen, setnavbarOpen] = useState(false);
 
   const currentPage = useLocation();
 
   const toggleNavbar = () => {
-    if (navbarOpen) {
-      setnavbarOpen(false);
-    } else {
-      setnavbarOpen(true);
-    }
+    setnavbarOpen(!navbarOpen)
   };
+
+//using ref to close menu when clicked on App component  
+
+if(navbarOpen){
+  function closeMenu(){
+    setnavbarOpen(false);
+    console.log("clicked")
+    appRef.current.removeEventListener('click',closeMenu)
+  }
+  if(appRef && appRef.current){
+   appRef.current.addEventListener('click', closeMenu);
+  
+}
+}
 
   return (
     <div className={navbarStyle.maincontainer}>
@@ -60,6 +70,7 @@ function Navbar({ user }) {
               <a
                 href="https://www.notion.so/How-to-use-Idea-Project-b4968be552f24ea8abefb56c97eb5019"
                 target="_blank"
+                rel="noreferrer"
               >
                 How to use
               </a>
