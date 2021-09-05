@@ -1,10 +1,10 @@
 const express = require('express');
 const mongoose =  require('mongoose');
 const app = express();
-const cors = require('cors');
 require('dotenv').config();
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
+const cors = require('cors')
 
 
 //Mongo atlas credentials
@@ -15,8 +15,18 @@ const PASSWORD = process.env.PASSWORD;
 const uri = `mongodb+srv://${USER_NAME}:${PASSWORD}@idea-project.sscfh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 const PORT = process.env.PORT || 5000;
 
+//setting trust proxy
 
 app.set("trust proxy", 1);
+
+
+
+app.use(cors({
+  origin : ["https://ideaproject.netlify.app","http://ideaproject.netlify.app"],
+  credentials : true,
+  optionsSuccessStatus: 200,
+  methods : ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS']
+}));
 
 const store = new MongoDBStore({
   uri: uri,
@@ -27,10 +37,7 @@ store.on('error', function(error) {
   console.log(error);
 });
 
-app.use(cors({
-origin : "https://ideaproject.netlify.app",
-credentials : true
-}));
+
 
 
 app.use(session({
@@ -58,7 +65,8 @@ const submit = require('./routes/submitRoutes')
 const ideas = require('./routes/ideasRoutes')
 const admin = require('./routes/adminDashRoutes')
 const auth = require('./routes/authenticationRoute')
-const allRoutes = require('./routes/allRoutes')
+const allRoutes = require('./routes/allRoutes');
+
 
 
 

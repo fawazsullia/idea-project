@@ -39,7 +39,7 @@ catch(err){
 });
 
 
-//signup post
+//signup post. Not exposed
 router.post('/signup', async (req,res)=>{
     try{
         const { userName, password} = req.body;

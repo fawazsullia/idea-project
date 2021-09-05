@@ -16,20 +16,22 @@ catch(err){
 }
 });
 
-//dashboard post to delete
+//delete the submitted idea
 
-router.post('/dashboard', async (req, res)=> {
+router.delete(`/dashboard/:id`, async (req, res)=> {
 try{
-const receivedId = req.body.id;
+const path = req.path;
+const receivedId = path.replace('/dashboard/', '')
 
 await IdeaDetails.findByIdAndDelete(receivedId)
-await res.send("deleted").end()
+await res.status(200).json({message : "deleted", status : "success"}).end()
 }
 catch(err){
     res.status(500).send("Couldn't connect to server").end()
 }
 
 })
+
 
 //dashboard put approve
 
@@ -38,7 +40,7 @@ try{
 const receivedId = req.body.id;
 console.log(receivedId)
 await IdeaDetails.findByIdAndUpdate(receivedId, { isValidated : true }, { new : false  } )
-await res.status(200).send("updated").end()
+await res.status(200).json({ messge : "updated", status : "success"}).end()
 }
 catch(err){
     res.status(500).send("Couldn't connect to server").end()

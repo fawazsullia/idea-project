@@ -2,17 +2,18 @@ const express = require('express');
 const router = express.Router();
 
 
-router.get("/", (req, res)=>{
+router.get("/", (req, res, next)=>{
     
 
 if(req.session.cookie && req.session.userName){
-    console.log("hit here")
-    console.log(req.session)
-    res.status(200).json({userName: req.session.userName, signedIn : true, userType: req.session.userType})
+    
+    res.status(200).json({userName: req.session.userName, signedIn : true, userType: req.session.userType});
+    next();
 
 }
 else {
-    res.status(200).json({userName: "", signedIn : false, userType: "" })
+    res.status(200).json({userName: "", signedIn : false, userType: "" });
+    next();
 
 }
     
