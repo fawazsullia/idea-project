@@ -6,13 +6,14 @@ const PASS = process.env.EMAIL_PASS
 
 
 function sendEmail(toAddress, message){
+
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: EMAIL,
-      pass: PASS
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASS
     }
-  });
+});
   
   const mailOptions = {
     from: 'The Idea project',
